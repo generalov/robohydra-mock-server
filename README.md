@@ -2,6 +2,12 @@
 
 This is a mocking server for using in e2e tests based on [RoboHydra](RoboHydra) framework.
 
+[![npm](https://img.shields.io/npm/v/@generalov/robohydra-mock-server.svg)](https://www.npmjs.com/package/@generalov/robohydra-mock-server)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/generalov/robohydra-mock-server/master/LICENSE)
+[![Build Status](https://travis-ci.org/generalov/robohydra-mock-server.svg?branch=master)](https://travis-ci.org/generalov/robohydra-mock-server)
+[![Code Climate](https://codeclimate.com/github/generalov/robohydra-mock-server/badges/gpa.svg)](https://codeclimate.com/github/generalov/robohydra-mock-server)
+[![Test Coverage](https://codeclimate.com/github/generalov/robohydra-mock-server/badges/coverage.svg)](https://codeclimate.com/github/generalov/robohydra-mock-server/coverage)
+
 ## Usage
 
 ```JavaScript
