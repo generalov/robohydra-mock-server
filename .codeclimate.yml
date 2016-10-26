@@ -1,0 +1,22 @@
+engines:
+  fixme:
+    enabled: true
+  eslint:
+    enabled: true
+    channel: "eslint-3"
+  markdownlint:
+    enabled: true
+
+ratings:
+  paths:
+    - "src/**.js"
+    - "src/**.ts"
+    - "README.md"
+
+exclude_paths:
+  - ".idea/"
+  - ".git/"
+  - "node_modules/"
+  - "coverage/"
+  - "lib/"
+  - "scripts/"

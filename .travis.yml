@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - '6.6.0'
+
+branches:
+  only:
+    - master
+
+cache:
+  directories:
+    - node_modules
+
+install:
+  - npm install --cache-min Infinity --spin false --progress false --no-optional
+
+script: npm test
+
