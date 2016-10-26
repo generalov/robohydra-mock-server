@@ -8,26 +8,45 @@ This is a mocking server for using in e2e tests based on [RoboHydra](RoboHydra) 
 [![Code Climate](https://codeclimate.com/github/generalov/robohydra-mock-server/badges/gpa.svg)](https://codeclimate.com/github/generalov/robohydra-mock-server)
 [![Test Coverage](https://codeclimate.com/github/generalov/robohydra-mock-server/badges/coverage.svg)](https://codeclimate.com/github/generalov/robohydra-mock-server/coverage)
 
+
 ## Usage
 
 ```JavaScript
 import MockServerClient = require('@generalov/robohydra-mock-server/client');
+import request = require('request');
 
-const robyHydraUrl = 'http://localhost:3000/';
-const mockServerClient = new MockServerClient({host: roboHydraUrl});
+const apiUrl = 'http://api.openweathermap.org';
+const roboHydraUrl = 'http://localhost:3000/';
 
-Promise.all([
-    mockServerClient
-        .when({url: 'http://localhost:8080'})
-        .proxy(),
-    mockServerClient
-        .when({url: 'http://api.openweathermap.org/'})
-        .respose({
-            status: 500,
-            body: '(Fake) Internal Server Error'
-        })
-]).then(() => {
-}).then(() => mockServerClient.reset(), () => mockServerClient.reset()); 
+// create client
+const mockServerClient = new MockServerClient({ host: roboHydraUrl });
+
+// set expectations
+const devServerProxy = () =>
+  mockServerClient.when({ url: `${apiUrl}/` }).proxy();
+
+// fake respose
+const fakeServerError = () =>
+  mockServerClient
+    .when({ url: `${apiUrl}/fake` })
+    .respose({ status: 500, body: '(Fake) Internal Server Error' });
+
+// work with proxy
+const spec = Promise.all([devServerProxy(), fakeServerError()])
+  .then(() => {
+    const r = request.defaults({'proxy': roboHydraUrl});
+
+    r.get(`${apiUrl}/`)
+      .on('response', (resp) => console.log(resp.statusCode) ); // 200
+
+    r.get(`${apiUrl}/fake`)
+      .on('response', (resp) => console.log(resp.statusCode) ); // 500
+  });
+
+// remove all expectations
+spec
+  .then(() => mockServerClient.reset())
+  .catch(() => mockServerClient.reset());
 
 ```
 ## Installation
