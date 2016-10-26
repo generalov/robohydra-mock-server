@@ -1,3 +1,4 @@
+/// <reference types="chai" />
 export declare class StaticHeadSerializer {
     private _data;
     constructor();
@@ -5,5 +6,5 @@ export declare class StaticHeadSerializer {
     whenUrl(path: string): void;
     whenContentType(contentType: string): void;
     whenContent(content: string): void;
-    readonly data: any;
+    readonly data: Object;
 }

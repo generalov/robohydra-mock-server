@@ -1,5 +1,3 @@
-process.env.DEBUG = '*';
-
 const http = require('http');
 const util = require('util');
 const SwaggerMockHead = require('./heads/SwaggerMockHead');

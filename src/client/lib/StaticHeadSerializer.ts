@@ -2,8 +2,18 @@
  * Created by Evgeniy_Generalov on 10/17/2016.
  */
 
+interface StaticHeadMessage {
+  newHeadType: 'static';
+  newStaticHeadPath: string;
+  newStaticHeadContent: string;
+  newStaticHeadStatus: number;
+  newStaticHeadContentType: string;
+  newStaticHeadHeaders: string;
+}
+
+
 export class StaticHeadSerializer {
-  private _data;
+  private _data: StaticHeadMessage;
 
   constructor() {
     this._data = {
@@ -33,6 +43,6 @@ export class StaticHeadSerializer {
   }
 
   get data() {
-    return this._data;
+    return <Object>this._data;
   }
 }

@@ -1,3 +1,6 @@
+/**
+ * Created by Evgeniy_Generalov on 10/17/2016.
+ */
 import { HttpResponse } from './HttpResponse';
 import { HttpRequest } from './HttpRequest';
 import { StaticHeadSerializer } from './StaticHeadSerializer';
