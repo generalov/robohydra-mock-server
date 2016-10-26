@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": true,
+    "outDir": "./lib",
+    "rootDir": "./src",
+    "experimentalDecorators": true,
+    "noImplicitAny": false,
+    "moduleResolution": "node",
+    "declaration": true,
+    "removeComments": true,
+    "noLib": false,
+    "pretty": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "noImplicitReturns": true,
+    "noImplicitUseStrict": false,
+    "noFallthroughCasesInSwitch": true,
+    "allowJs": false,
+    "forceConsistentCasingInFileNames": true,
+    "typeRoots": [
+      "./node_modules/@types"
+    ]
+  },
+  "include": [
+    "src/client/*"
+  ]
+}

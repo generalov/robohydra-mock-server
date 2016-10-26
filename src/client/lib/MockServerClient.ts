@@ -9,6 +9,7 @@ import {ForwardChainExpectation} from './ForwardChainExpectation';
 import {Expectation} from './Expectation';
 import {HttpRequest} from './HttpRequest';
 import {StaticHeadSerializer} from './StaticHeadSerializer';
+import {IncomingMessage} from 'http';
 
 
 export class MockServerClient {
@@ -21,7 +22,7 @@ export class MockServerClient {
     this.userAgent = options.userAgent || '*default*';
     this.headers = {
       'User-Agent': options.userAgent
-    }
+    };
   }
 
   /**
@@ -45,9 +46,9 @@ export class MockServerClient {
 
   /**
    * Reset MockServerClient by clearing all expectations
-   * @return {Promise}
+   * @return {Promise<any>}
    */
-  reset(): Promise {
+  reset(): Promise<any> {
     const put = Observable.bindNodeCallback(request.put);
     return put({
       url: this.url + '/rest/heads/dynamic',
@@ -58,9 +59,9 @@ export class MockServerClient {
   /**
    * Add proxy head.
    * @param proxyOptions
-   * @returns
+   * @returns {Promise<IncomingMessage>}
    */
-  proxy(proxyOptions: {url: string}): Observable<any> {
+  proxy(proxyOptions: {url: string}): Promise<IncomingMessage> {
     const post = Observable.bindNodeCallback(request.post);
     const mountPath: string = proxyOptions.url.replace(/(^http:\/\/)/, '');
 
@@ -76,7 +77,7 @@ export class MockServerClient {
     }).toPromise();
   }
 
-  sendExpectation(expectation: Expectation): Observable<any> {
+  sendExpectation(expectation: Expectation): Promise<IncomingMessage> {
     const serializer = new StaticHeadSerializer();
     const post = Observable.bindNodeCallback(request.post);
 

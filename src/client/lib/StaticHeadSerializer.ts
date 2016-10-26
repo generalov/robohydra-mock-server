@@ -13,7 +13,7 @@ export class StaticHeadSerializer {
       newStaticHeadStatus: 200,
       newStaticHeadContentType: 'text/plain',
       newStaticHeadHeaders: ''
-    }
+    };
   }
 
   whenStatus(status: number) {
