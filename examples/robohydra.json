@@ -1,0 +1,12 @@
+{
+  "plugins": [
+    "admin-extras",
+    "forward-proxy"
+  ],
+  "pluginLoadPaths": [
+    "plugins"
+  ],
+  "summoner": {
+    "hydraPickerPlugin": "admin-extras"
+  }
+}

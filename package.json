@@ -1,5 +1,5 @@
 {
-  "name": "@generalov/robohydra-mock-server",
+  "name": "robohydra-mock-server",
   "version": "0.0.1-alpha.1",
   "description": "Web API mocking server for e2e testing based on RoboHydra.",
   "scripts": {
