@@ -2,11 +2,11 @@
  * Created by Evgeniy_Generalov on 10/17/2016.
  */
 "use strict";
-var rxjs_1 = require('rxjs');
-var request = require('request');
-var ForwardChainExpectation_1 = require('./ForwardChainExpectation');
-var Expectation_1 = require('./Expectation');
-var StaticHeadSerializer_1 = require('./StaticHeadSerializer');
+var rxjs_1 = require("rxjs");
+var request = require("request");
+var ForwardChainExpectation_1 = require("./ForwardChainExpectation");
+var Expectation_1 = require("./Expectation");
+var StaticHeadSerializer_1 = require("./StaticHeadSerializer");
 var MockServerClient = (function () {
     function MockServerClient(options) {
         this.url = options.host.replace(/\/+$/, '') + '/robohydra-admin';

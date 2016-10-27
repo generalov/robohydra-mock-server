@@ -10,10 +10,10 @@
     "prebuild": "npm run test",
     "pretest": "npm run lint"
   },
-  "main": "./lib/index.js",
-  "typings": "./lib/index",
+  "main": "./client/index.js",
+  "typings": "./client/index",
   "files": [
-    "lib",
+    "client",
     "plugins"
   ],
   "keywords": [
@@ -37,7 +37,7 @@
     "mocha": "^3.1.2",
     "ts-node": "^1.4.3",
     "tslint": "3.15.1",
-    "typescript": "2.0.6"
+    "typescript": "^2.1.0-dev.20161026"
   },
   "peerDependencies": {
     "robohydra": "^0.6.4"
