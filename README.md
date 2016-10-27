@@ -23,13 +23,15 @@ Create a `robohydra.json` configuration file:
 {
   "plugins": [
     "admin-extras",
-    "forward-proxy"
+    "forward-proxy",
+    "swagger-mock",
+    "user-agent-summoner"
   ],
   "pluginLoadPaths": [
     "node_modules/robohydra-mock-server/plugins"
   ],
   "summoner": {
-    "hydraPickerPlugin": "admin-extras"
+    "hydraPickerPlugin": "user-agent-summoner"
   }
 }
 ```

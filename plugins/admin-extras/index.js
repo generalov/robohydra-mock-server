@@ -69,15 +69,3 @@ exports.getBodyParts = function (conf) {
 
   return {heads: []};
 };
-
-
-exports.getSummonerTraits = function () {
-  return {
-    hydraPicker: function (req) {
-      // USER_AGENT header is used to associate mocks with concrete browser to
-      // run tests in multiple different browsers simultaneously without conflicts.
-      return req.headers['user-agent'] || '*default*';
-    }
-  };
-};
-
