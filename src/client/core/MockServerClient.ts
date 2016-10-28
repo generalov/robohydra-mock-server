@@ -24,7 +24,6 @@ export class MockServerClient {
   constructor(options?: {host?: string, userAgent?: string}) {
     options || (options = {});
     this.host = options.host || DEFAULT_HOST;
-
     this.userAgent = options.userAgent || DEFAULT_USER_AGENT;
   }
 
@@ -45,7 +44,7 @@ export class MockServerClient {
    *           );
    *
    * @param expectations
-   * @return {Promise<[IncomingMessage]>}
+   * @returns Promise
    */
   public when(...expectations: Array<Expectation>): Promise<[IncomingMessage]> {
     const promises = expectations.map((value: Expectation) => value.sendExpectation(this));
@@ -53,17 +52,23 @@ export class MockServerClient {
   }
 
   /**
-   * Reset MockServerClient by clearing all expectation
-   * @return {Promise<IncomingMessage>}
+   * Reset MockServerClient by clearing all expectations.
+   *
+   * @returns Promise
    */
   public reset(): Promise<IncomingMessage> {
-    const put = Observable.bindNodeCallback(request.put);
-    return put({
+    return this.put({
       url: this.adminUrl('/rest/heads/dynamic'),
       headers: this.headers
     }).toPromise();
   };
 
+  /**
+   * Build URL belongs to robohydra admin.
+   *
+   * @param path belongs to robohydra admin site.
+   * @returns full URL.
+   */
   public adminUrl(path: string) {
     return this.host.replace(/\/+$/, '') + '/robohydra-admin' + path;
   }

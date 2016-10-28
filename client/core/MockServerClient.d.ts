@@ -31,13 +31,20 @@ export declare class MockServerClient {
      *           );
      *
      * @param expectations
-     * @return {Promise<[IncomingMessage]>}
+     * @returns Promise
      */
     when(...expectations: Array<Expectation>): Promise<[IncomingMessage]>;
     /**
-     * Reset MockServerClient by clearing all expectation
-     * @return {Promise<IncomingMessage>}
+     * Reset MockServerClient by clearing all expectations.
+     *
+     * @returns Promise
      */
     reset(): Promise<IncomingMessage>;
+    /**
+     * Build URL belongs to robohydra admin.
+     *
+     * @param path belongs to robohydra admin site.
+     * @returns full URL.
+     */
     adminUrl(path: string): string;
 }
