@@ -12,8 +12,6 @@ import {IncomingMessage} from 'http';
 const DEFAULT_HOST: string = 'http://localhost:3000';
 const DEFAULT_USER_AGENT: string = '*default*';
 
-async function xx() {
-}
 
 export class MockServerClient {
   public host: string;
