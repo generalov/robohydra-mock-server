@@ -49,7 +49,7 @@ export class MockServerClient {
    * @param expectation an instance of Expectation interface
    * @return {Promise<IncomingMessage>}
    */
-  when(expectation: Expectation): Promise<IncomingMessage> {
+  public when(expectation: Expectation): Promise<IncomingMessage> {
     return expectation.sendExpectation(this);
   }
 
@@ -57,7 +57,7 @@ export class MockServerClient {
    * Reset MockServerClient by clearing all expectation
    * @return {Promise<IncomingMessage>}
    */
-  reset(): Promise<IncomingMessage> {
+  public reset(): Promise<IncomingMessage> {
     const put = Observable.bindNodeCallback(request.put);
     return put({
       url: this.adminUrl('/rest/heads/dynamic'),
@@ -65,7 +65,7 @@ export class MockServerClient {
     }).toPromise();
   };
 
-  adminUrl(path: string) {
+  public adminUrl(path: string) {
     return this.host.replace(/\/+$/, '') + '/robohydra-admin' + path;
   }
 }

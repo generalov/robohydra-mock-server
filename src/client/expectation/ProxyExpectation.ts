@@ -22,7 +22,7 @@ export class ProxyExpectation implements Expectation {
     const mountPath: string = this.requeset.url.replace(/(^http:\/\/)/, '');
 
     return client.post({
-      url: client.adminUrl('/head/sendExpectation'),
+      url: client.adminUrl('/head/create'),
       form: {
         newHeadType: 'proxy',
         newProxyHeadMountPath: mountPath,

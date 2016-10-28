@@ -38,7 +38,7 @@ export class StaticResponseExpectation implements Expectation {
 
   public sendExpectation(client: MockServerClient): Promise<IncomingMessage> {
     return client.post({
-      url: client.adminUrl('/head/sendExpectation'),
+      url: client.adminUrl('/head/create'),
       form: {
         newHeadType: 'static',
         newStaticHeadPath: this.request.url.replace(/(^http:\/\/)/, '/'),
