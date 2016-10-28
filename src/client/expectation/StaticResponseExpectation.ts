@@ -33,6 +33,7 @@ export class StaticResponseExpectation implements Expectation {
     if (options.contentType) {
       this.response.contentType = options.contentType;
     }
+    return this;
   }
 
   public sendExpectation(client: MockServerClient): Promise<IncomingMessage> {

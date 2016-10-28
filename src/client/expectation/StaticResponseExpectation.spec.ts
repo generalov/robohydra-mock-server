@@ -5,6 +5,7 @@
 import {expect} from 'chai';
 import {StaticResponseExpectation} from './StaticResponseExpectation';
 
+
 describe('StaticResponseExpectation', () => {
   it('should be defined', () => {
     // noinspection BadExpressionStatementJS
@@ -25,6 +26,12 @@ describe('StaticResponseExpectation', () => {
     it('should be defined', () => {
       // noinspection BadExpressionStatementJS
       expect(new StaticResponseExpectation().respond).to.be.a('function');
+    });
+
+    it('should return self', () => {
+      // noinspection BadExpressionStatementJS
+      const expectation = new StaticResponseExpectation();
+      expect(expectation.respond({status: 200})).to.equal(expectation);
     });
   });
 });
