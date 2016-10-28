@@ -18,5 +18,5 @@ exclude_paths:
   - ".git/"
   - "node_modules/"
   - "coverage/"
-  - "lib/"
+  - "core/"
   - "scripts/"

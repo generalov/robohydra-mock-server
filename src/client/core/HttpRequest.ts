@@ -3,5 +3,6 @@
  */
 
 export interface HttpRequest {
-  url?: string;
+  url: string;
+  method?: string;
 }

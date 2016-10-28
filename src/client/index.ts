@@ -2,4 +2,6 @@
  * Created by Evgeniy_Generalov on 10/17/2016.
  */
 
-export {MockServerClient} from './lib/MockServerClient';
+export {MockServerClient} from './core/MockServerClient';
+export * from './mock/request';
+export * from './mock/proxy';

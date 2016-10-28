@@ -2,11 +2,9 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es5",
-    "sourceMap": true,
     "outDir": "./",
     "rootDir": "./src",
     "noImplicitAny": true,
-    "moduleResolution": "node",
     "declaration": true,
     "pretty": true,
     "noImplicitReturns": true,
@@ -14,13 +12,14 @@
     "forceConsistentCasingInFileNames": true,
     "typeRoots": [
       "./node_modules/@types"
-    ]
+    ],
+    "moduleResolution": "node",
+    "inlineSourceMap": true
   },
   "include": [
     "src/client/*"
   ],
   "exclude": [
-    "src/client/specs/*"
+    "**/*.spec.*"
   ]
-
 }
