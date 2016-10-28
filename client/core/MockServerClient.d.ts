@@ -30,10 +30,10 @@ export declare class MockServerClient {
      *               .respond({status: 200, body: "some_response_body"})
      *           );
      *
-     * @param expectation an instance of Expectation interface
-     * @return {Promise<IncomingMessage>}
+     * @param expectations
+     * @return {Promise<[IncomingMessage]>}
      */
-    when(expectation: Expectation): Promise<IncomingMessage>;
+    when(...expectations: Array<Expectation>): Promise<[IncomingMessage]>;
     /**
      * Reset MockServerClient by clearing all expectation
      * @return {Promise<IncomingMessage>}

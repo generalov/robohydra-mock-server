@@ -46,11 +46,12 @@ export class MockServerClient {
    *               .respond({status: 200, body: "some_response_body"})
    *           );
    *
-   * @param expectation an instance of Expectation interface
-   * @return {Promise<IncomingMessage>}
+   * @param expectations
+   * @return {Promise<[IncomingMessage]>}
    */
-  public when(expectation: Expectation): Promise<IncomingMessage> {
-    return expectation.sendExpectation(this);
+  public when(...expectations: Array<Expectation>): Promise<[IncomingMessage]> {
+    const promises = expectations.map((value: Expectation) => value.sendExpectation(this));
+    return Promise.all(promises);
   }
 
   /**
