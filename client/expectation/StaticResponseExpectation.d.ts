@@ -12,7 +12,7 @@ export declare class StaticResponseExpectation implements Expectation {
     private request;
     private response;
     constructor(options?: HttpRequest);
-    respond(options: HttpResponse): void;
+    respond(options: HttpResponse): this;
     sendExpectation(client: MockServerClient): Promise<IncomingMessage>;
     whenStatus(status: number): void;
     whenUrl(url: string): void;
