@@ -1,12 +1,13 @@
 {
   "plugins": [
     "admin-extras",
-    "forward-proxy"
+    "forward-proxy",
+    "user-agent-summoner"
   ],
   "pluginLoadPaths": [
     "plugins"
   ],
   "summoner": {
-    "hydraPickerPlugin": "admin-extras"
+    "hydraPickerPlugin": "user-agent-summoner"
   }
 }

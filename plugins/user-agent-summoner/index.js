@@ -8,6 +8,7 @@
 
 
 exports.getBodyParts = function () {
+  return {};
 };
 
 exports.getSummonerTraits = function () {
