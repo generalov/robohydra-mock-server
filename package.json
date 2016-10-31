@@ -3,7 +3,7 @@
   "version": "0.0.1-alpha.1",
   "description": "Web API mocking server for e2e testing based on RoboHydra.",
   "scripts": {
-    "doc:api": "typedoc --out docs --exclude \"**/*.spec.ts\" --excludeExternals --excludePrivate --readme README.md  node_modules/@types src",
+    "docs:api": "typedoc --out docs/api --exclude \"**/*.spec.ts\" --excludeExternals --excludePrivate --readme README.md  node_modules/@types src",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "mocha --compilers ts:ts-node/register \"src/**/*.spec.ts\"",
     "cover": "rimraf coverage && nyc --require ts-node/register npm run test",
