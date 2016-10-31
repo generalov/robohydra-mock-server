@@ -15,8 +15,7 @@ function escapeRegExp(string) {
 
 rl.on('line', function (line) {
   const output = line
-    .replace(new RegExp(`^SF:(.*!)?${escapeRegExp(projectRoot)}.`), 'SF:')
-    .replace(/\\/g, '/');
+    .replace(new RegExp(`^SF:(.*!)?${escapeRegExp(projectRoot)}.`), 'SF:');
 
   console.log(output);
 });
