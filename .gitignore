@@ -1,5 +1,7 @@
 # Dependency directories
-node_modules/
-node_cache/
 .idea/
+.nyc_output/
+coverage/
+node_cache/
+node_modules/
 npm-debug.log
