@@ -10,8 +10,14 @@ cache:
   directories:
     - node_modules
 
+before_install:
+  - npm install --cache-min Infinity --spin false --progress false --no-optional -g codeclimate-test-reporter
+
 install:
   - npm install --cache-min Infinity --spin false --progress false --no-optional
 
-script: npm test
+script: npm run cover
+
+after_script:
+  - node scripts/fix-codeclimate-lcov.js < coverage/lcov.info | codeclimate-test-reporter
 

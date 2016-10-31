@@ -4,11 +4,12 @@
   "description": "Web API mocking server for e2e testing based on RoboHydra.",
   "scripts": {
     "lint": "tslint \"src/**/*.ts\"",
-    "test": "mocha --require ts-node/register \"src/**/*.spec.ts\"",
+    "test": "mocha --compilers ts:ts-node/register \"src/**/*.spec.ts\"",
+    "cover": "rimraf coverage && nyc --require ts-node/register npm run test",
     "build": "tsc -p .",
-    "build:clean": "rimraf \"./client/*\"",
-    "prepublish": "npm run build",
-    "prebuild": "npm run test && npm run build:clean",
+    "build:clean": "rimraf \"client/*\"",
+    "prepublish": "npm run build && npm run test",
+    "prebuild": "npm run build:clean",
     "pretest": "npm run lint"
   },
   "main": "./client/index.js",
@@ -35,7 +36,9 @@
     "@types/node": "6.0.45",
     "@types/request": "0.0.31",
     "chai": "^3.5.0",
+    "istanbul": "^0.4.5",
     "mocha": "^3.1.2",
+    "nyc": "^8.3.2",
     "rimraf": "^2.5.4",
     "ts-node": "^1.4.3",
     "tslint": "3.15.1",
@@ -43,5 +46,29 @@
   },
   "peerDependencies": {
     "robohydra": "^0.6.4"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.ts"
+    ],
+    "exclude": [
+      "src/**/*.spec.ts",
+      "node_modules/",
+      "client/"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "lcov",
+      "text-summary"
+    ],
+    "sourceMap": true,
+    "instrument": true,
+    "cache": true,
+    "all": true
   }
 }
