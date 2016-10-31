@@ -19,5 +19,5 @@ install:
 script: npm run cover
 
 after_script:
-  - codeclimate-test-reporter < coverage/lcov.info
+  - node scripts/fix-codeclimate-lcov.js < coverage/lcov.info | codeclimate-test-reporter
 

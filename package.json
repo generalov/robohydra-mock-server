@@ -8,8 +8,8 @@
     "cover": "rimraf coverage && nyc --require ts-node/register npm run test",
     "build": "tsc -p .",
     "build:clean": "rimraf \"client/*\"",
-    "prepublish": "npm run build",
-    "prebuild": "npm run test && npm run build:clean",
+    "prepublish": "npm run build && npm run test",
+    "prebuild": "npm run build:clean",
     "pretest": "npm run lint"
   },
   "main": "./client/index.js",
@@ -39,6 +39,7 @@
     "istanbul": "^0.4.5",
     "mocha": "^3.1.2",
     "nyc": "^8.3.2",
+    "remap-istanbul": "^0.7.0",
     "rimraf": "^2.5.4",
     "ts-node": "^1.4.3",
     "tslint": "3.15.1",
